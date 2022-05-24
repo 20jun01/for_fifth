@@ -1,11 +1,10 @@
 <script setup>
 import axios from "axios";
 import { ref } from "vue";
-// import Login from "../components/Login.vue";
 const user_name = ref("");
 const password = ref("");
-const sendUser = () => {
-  axios.post("/api/login", {
+const sndUser = () => {
+  axios.post("/api/signup", {
     username: user_name.value,
     password: password.value,
   });
@@ -13,14 +12,13 @@ const sendUser = () => {
 </script>
 
 <template>
-  <div class="login">
-    This is Login Page
+  <div class="signup">
     <div>
       <input v-model="user_name" type="text" />
       <input v-model="password" type="password" />
     </div>
     <div>
-      <button @click="sendUser">送信</button>
+      <button @click="sndUser">アカウント作成</button>
     </div>
   </div>
 </template>
